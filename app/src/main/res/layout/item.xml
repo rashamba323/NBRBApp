@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_margin="5dp">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/item_char_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:text="USD"/>
+        <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 росийских рублей"
+                android:textSize="15sp"/>
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/item_rate_one"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="85dp"
+
+            android:text="1000.2"/>
+
+    <TextView
+            android:id="@+id/item_rate_second"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_alignParentRight="true"
+            android:text="1000.2"/>
+
+</RelativeLayout>
