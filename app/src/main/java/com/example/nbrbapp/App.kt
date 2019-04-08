@@ -24,7 +24,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-
         val retrofit = Retrofit.Builder()
                 .baseUrl("http://www.nbrb.by/Services/")
                 .addConverterFactory(SimpleXmlConverterFactory.create())
@@ -33,13 +32,11 @@ class App : Application() {
 
         api = retrofit.create(Api::class.java)
 
-
     }
 
     fun getDate() : String {
         val dateFormat = SimpleDateFormat("dd.MM.yyyy")
         val date = dateFormat.format(Calendar.getInstance().time).toString()
-        Log.e("DATE", date)
         return date
     }
 
@@ -48,7 +45,6 @@ class App : Application() {
         val calendar  = Calendar.getInstance()
         calendar.add(Calendar.DATE, -1)
         val date = dateFormat.format(calendar.time).toString()
-        Log.e("DATE Yesterday", date)
         return date
     }
 
@@ -57,7 +53,6 @@ class App : Application() {
         val calendar  = Calendar.getInstance()
         calendar.add(Calendar.DATE, +1)
         var date = dateFormat.format(calendar.time).toString()
-        Log.e("DATE Tomorrow", date)
         return date
     }
 

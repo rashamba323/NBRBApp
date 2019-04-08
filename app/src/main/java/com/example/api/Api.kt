@@ -8,8 +8,6 @@ import retrofit2.http.Header
 
 interface Api {
 
-
-
     @GET("XmlExRates.aspx?ondate=")
     fun getCurrency(@Header("date")date: String) : Observable<СurrencyModel>
 
@@ -18,4 +16,5 @@ interface Api {
 
     @GET("XmlExRates.aspx?ondate=")
     fun getCurrencyTomorrow(@Header("date")date: String) : Observable<СurrencyModel>
+
 }

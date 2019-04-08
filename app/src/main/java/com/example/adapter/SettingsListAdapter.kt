@@ -23,15 +23,11 @@ import kotlin.coroutines.coroutineContext
 
 class SettingsListAdapter : RecyclerView.Adapter<SettingsListAdapter.SettingsViewHolder>() {
 
-
     private var listItems = ArrayList<CurrencyItem>()
     lateinit var sharedPreferences: SharedPreferences
-    val publishSubject = PublishSubject.create<String>()
-
 
     fun setList(list: ArrayList<CurrencyItem>){
         this.listItems = list
-        Log.e("ITEMS", "size ${list.size}")
         notifyDataSetChanged()
     }
 
@@ -52,14 +48,6 @@ class SettingsListAdapter : RecyclerView.Adapter<SettingsListAdapter.SettingsVie
         if(sharedPreferences.getBoolean(listItems[position].charCode.toString(), false)) {
             holder.switch.setChecked(true)
         }
-
-//        holder.imageMove.setOnTouchListener { v, event ->
-//            if(event.actionMasked == MotionEvent.ACTION_DOWN){
-//            }
-//        }
-
-
-
     }
 
     class SettingsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -69,8 +57,6 @@ class SettingsListAdapter : RecyclerView.Adapter<SettingsListAdapter.SettingsVie
         var charCode: TextView = itemView.findViewById(R.id.item_char_code)
         var name: TextView = itemView.findViewById(R.id.item_name)
         var switch: Switch = itemView.findViewById(R.id.item_settings_switch)
-        var imageMove: ImageView = itemView.findViewById(R.id.item_settings_move)
-
 
         fun bind(list: CurrencyItem){
             charCode.text = list.charCode.toString()
@@ -88,6 +74,5 @@ class SettingsListAdapter : RecyclerView.Adapter<SettingsListAdapter.SettingsVie
         }
 
     }
-
 
 }

@@ -17,26 +17,17 @@ import java.util.*
 class CurrencyListAdapter : RecyclerView.Adapter<CurrencyListAdapter.CurrencyViewHolder>() {
 
     private var listItems = ArrayList<CurrencyItem>()
-    var listItemsDelete = ArrayList<CurrencyItem>()
-    lateinit var sharedPreferences: SharedPreferences
-
 
     fun setItems(list: ArrayList<CurrencyItem>){
-        this.listItems = list
 
-        Log.e("ITEMS", "size ${list.size}")
-        for(i in listItems.indices){
-        Log.e("LOAD DATA ADAPTER SET", "addItems rateSecond ${list[i].rate} ")
-        }
+        this.listItems = list
 
         notifyDataSetChanged()
     }
 
     fun addItems(list: ArrayList<CurrencyItem>){
         for(i in listItems.indices){
-//            val string : String = list[i].rate!!
             listItems[i].rateSecond = list[i].rate!!
-            Log.e("LOAD DATA ADAPTER ADD", "addItems rateSecond ${list[i].rate} ")
         }
         notifyDataSetChanged()
 
@@ -44,16 +35,16 @@ class CurrencyListAdapter : RecyclerView.Adapter<CurrencyListAdapter.CurrencyVie
 
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): CurrencyViewHolder {
+
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
-        Log.e("ITEMS", "size ${listItems.size}")
         return CurrencyViewHolder(view)
+
     }
 
     override fun getItemCount(): Int = listItems.size
 
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
 
-            Log.e("BIND", "${listItems[position].charCode}")
             holder.bind(listItems[position])
 
     }

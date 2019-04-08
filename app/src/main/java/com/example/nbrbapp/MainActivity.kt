@@ -30,14 +30,14 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var recycler: RecyclerView
     var currencyListAdapter = CurrencyListAdapter()
+    var listItems = ArrayList<CurrencyItem>()
     lateinit var dateFirst: TextView
     lateinit var dateSecond: TextView
     lateinit var sharedPreferences: SharedPreferences
     lateinit var api: Api
-    var listItems = ArrayList<CurrencyItem>()
     lateinit var menuItem: MenuItem
+    private lateinit var recycler: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -115,7 +115,6 @@ class MainActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
 
-
                 dateFirst.text = App().getDate()
                 listItems = it.currencyItems!!
                 currencyListAdapter.setItems(sortList(it.currencyItems!!))
@@ -134,16 +133,9 @@ class MainActivity : AppCompatActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
 
-//                        if(!sharedPreferences.getBoolean("settigs_ok", false)){
-//                            setDefultItemsPosition(it.currencyItems!!)
-//                            sharedPreferences.edit().putBoolean("settigs_ok", true).apply()
-//                            Log.e("SET LIST POS", "True!")
-//                        }
-
                         dateSecond.text = App().getDateTomorrow()
                         currencyListAdapter.addItems(sortList(it.currencyItems!!))
                         menuItem.setVisible(true)
-
 
                     },{
 
@@ -165,6 +157,4 @@ class MainActivity : AppCompatActivity() {
                             })
                     }) })
     }
-
-
 }

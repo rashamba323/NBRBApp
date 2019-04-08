@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
-
-    <LinearLayout
-            android:layout_width="wrap_content"
+        android:layout_margin="3dp"
+        app:cardElevation="8dp"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="2dp">
 
-        <TextView
-                android:id="@+id/item_char_code"
+        <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:text="USD"/>
-        <TextView
-                android:id="@+id/item_name"
-                android:layout_width="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/item_char_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:text="USD"/>
+            <TextView
+                    android:id="@+id/item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100 росийских рублей"
+                    android:textSize="15sp"/>
+        </LinearLayout>
+
+
+
+        <Switch android:id="@+id/item_settings_switch"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="100 росийских рублей"
-                android:textSize="15sp"/>
-    </LinearLayout>
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="100dp"
+
+                android:gravity="center"/>
+
+        <ImageView
+                android:id="@+id/item_settings_move"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/baseline_reorder_black_24dp"/>
 
 
+    </RelativeLayout>
 
-    <Switch android:id="@+id/item_settings_switch"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="100dp"
-
-            android:gravity="center"/>
-
-    <ImageView
-            android:id="@+id/item_settings_move"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
-            android:layout_centerInParent="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/baseline_reorder_black_24dp"/>
-
-
-</RelativeLayout>
+</android.support.v7.widget.CardView>

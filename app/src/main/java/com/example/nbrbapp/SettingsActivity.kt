@@ -17,10 +17,10 @@ import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
 
+    lateinit var sharedPreferences: SharedPreferences
     lateinit var recyclerView: RecyclerView
     var settingsListAdapter = SettingsListAdapter()
     private var listItems = ArrayList<CurrencyItem>()
-    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,13 +37,13 @@ class SettingsActivity : AppCompatActivity() {
         recyclerView.setItemViewCacheSize(30)
         settingsListAdapter.setList(listItems)
 
-
         val itemTouchHelper = ItemTouchHelper(object :  ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) {
 
             override fun onSwiped(p0: RecyclerView.ViewHolder, p1: Int) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
+
             override fun onMove(recyclerView: RecyclerView, dragged: RecyclerView.ViewHolder,
                                 target: RecyclerView.ViewHolder ): Boolean {
                 val draggedPosition = dragged.adapterPosition
